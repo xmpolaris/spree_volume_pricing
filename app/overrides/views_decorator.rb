@@ -9,3 +9,9 @@ Deface::Override.new(:virtual_path => "spree/admin/variants/edit",
                      :insert_after => "[data-hook='admin_variant_edit_form']",
                      :partial => "spree/admin/variants/edit_fields",
                      :disabled => false)
+
+Deface::Override.new(:virtual_path => "spree/products/show",
+                     :name => "add_volume_pricing_info_to_product_page",
+                     :insert_before => "[data-hook='cart_form']",
+                     :text => "<%= render partial: 'spree/products/volume_pricing', locals: {product: @product} %>",
+                     :disabled => false)
